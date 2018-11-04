@@ -1,0 +1,43 @@
+<snippet>
+	<content><![CDATA[
+mod={ test : ()=>{
+  console.log($1, $1(arguments))
+},status:'Entwurf', moduleDescription:`Modul $1:
+$2
+`}; var pa = process.argv; $1.mod = mod;  if( pa.find( a => a.match(/test[al]*/) ) ) {
+  console.log('\nmoduleDescription (Status: '+mod.status+'):\n',mod.moduleDescription+'\nTestergebnis:'); 
+  mod.test(); pa.find(a => a.match(/all/) ) ? pa.push('test') : pa.splice(pa.indexOf('test'), 1) }; 
+
+function $1(){
+  mod.args = arguments; var res = mod.args || '( ͡° ͜ʖ ͡°) - ¯\\\_(ツ)/¯'
+  $3
+  return res
+}
+module.exports = $1
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>basisModule</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+
+
+  <!-- Speichere das in: User/.config/sublime-text-3/Packages/User/basisModule.sublime-snippet
+
+  Beschreibung:
+
+ TESTAUFRUF
+ node baseModule.js test || testall
+ moduleDescription (Status: Entwurf):
+  Modul XYZ:
+ Testergebnis:
+ ( ͡° ͜ʖ ͡°) - ¯\_(ツ)/¯
+
+ REQUIREAUFRUF
+ > m = require('./baseModule.js')
+ { [Function: baseModule] mod: { test: [Function: test] } }
+ > m()
+ '( ͡° ͜ʖ ͡°) - ¯\\_(ツ)/¯'
+ > m.mod
+ { test: [Function: test] }
+  -->
+</snippet>
